@@ -8,7 +8,7 @@ const Footer = () => {
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div className="flex flex-col items-center md:items-start">
-          <NavLink className="mb-4 text-xl font-bold">
+          <NavLink to={"/"} className="mb-4 text-xl font-bold">
             <span className="text-red-600">GHANA</span>
             <span className="text-green-600">MALL</span>
           </NavLink>

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { FaCircleUser } from "react-icons/fa6";
 import { GiShoppingBag } from "react-icons/gi";
@@ -10,11 +10,13 @@ import { useContext, useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 import { SidebarContext } from "../context/SidebarContextProvider";
 import { CartContext } from "../context/CartContext";
+import { LuUser2 } from "react-icons/lu";
 
-const Navbar = () => {
+const Navbar = ({ setShowLogin }) => {
   const [visible, setVisible] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemQuantity } = useContext(CartContext);
+  const token = false;
 
   return (
     <div className="relative py-5 border z-100 max-padd-container flexBetween border-b-red-200">
@@ -54,30 +56,37 @@ const Navbar = () => {
             {itemQuantity}
           </span>
         </div>
-
-        {/* User Dropdown */}
-        <div className="relative group ">
-          <FaCircleUser className="w-5 text-2xl cursor-pointer" />
-          <motion.div
-            className="absolute right-0 z-20 hidden py-3 border border-red-200 rounded shadow-sm group-hover:block group-focus-within:block w-36 bg-slate-100"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.2 }}
+        {!token ? (
+          <button
+            onClick={() => setShowLogin(true)}
+            className="flex items-center justify-center px-2 py-2 text-base font-medium text-center text-white bg-green-500 rounded-lg gap-1"
           >
-            <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded cursor-pointer">
-              <p className="flex gap-1 hover:text-black">
-                <IoPersonOutline /> My Profile
-              </p>
-              <p className="flex gap-1 cursor-pointer hover:text-black">
-                <FiPackage /> Orders
-              </p>
-              <p className="flex gap-1 cursor-pointer hover:text-black">
-                <CiLogout /> Logout
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
+            <LuUser2 className="bold 18px" />
+            Login
+          </button>
+        ) : (
+          <div className="relative group ">
+            <FaCircleUser className="w-5 text-2xl cursor-pointer" />
+            <motion.div
+              className="absolute right-0 z-20 hidden py-3 border border-red-200 rounded shadow-sm group-hover:block group-focus-within:block w-36 bg-slate-100"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded cursor-pointer">
+                <p className="flex gap-1 hover:text-black">
+                  <IoPersonOutline /> My Profile
+                </p>
+                <p className="flex gap-1 cursor-pointer hover:text-black">
+                  <FiPackage /> Orders
+                </p>
+                <p className="flex gap-1 cursor-pointer hover:text-black">
+                  <CiLogout /> Logout
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
         {/* Mobile Menu Icon */}
         <MdMenu
           onClick={() => setVisible(true)}

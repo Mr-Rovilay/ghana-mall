@@ -55,7 +55,7 @@ const SideBar = () => {
       </div>
 
       {/* Total and Checkout Section */}
-      <div className="flex items-center justify-between my-4">
+      <div className="flex items-center justify-between ">
       <div className="flex gap-2 my-4">
         <span className="font-semibold">Total:</span>
         <span className="font-semibold">${total.toFixed(2)}</span>
@@ -65,8 +65,8 @@ const SideBar = () => {
       </div>
 
       </div>
-      <div className="text-center">
-        <button className="px-4 py-2 text-white bg-green-500 rounded hover:bg-secondary">
+      <div className="text-center w-full">
+        <button className="px-4 py-2 text-white bg-green-500 rounded hover:bg-secondary w-full">
           Checkout
         </button>
       </div>

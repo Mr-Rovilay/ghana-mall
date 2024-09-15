@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Shops from "./pages/Shops";
@@ -7,13 +6,17 @@ import About from "./pages/About";
 import ProductsDetails from "./pages/ProductsDetails";
 import Footer from "./components/Footer";
 import SideBar from "./components/SideBar";
+import LoginPopup from "./components/LoginPopup";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 const App = () => {
+  const [showLogin, setShowLogin] = useState(false);
   return (
-    // overflow-hidden text-[#404040] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]
     <div className="">
       <BrowserRouter>
-        <Header />
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+      <Navbar setShowLogin={setShowLogin}/>
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
