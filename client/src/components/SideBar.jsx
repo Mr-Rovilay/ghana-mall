@@ -60,7 +60,7 @@ const SideBar = () => {
         <span className="font-semibold">Total:</span>
         <span className="font-semibold">${total.toFixed(2)}</span>
       </div>
-      <div className="text-2xl text-red-500" onClick={clearCart}>
+      <div className="text-2xl text-red-500 cursor-pointer" onClick={clearCart}>
       <FaTrashAlt />
       </div>
 
