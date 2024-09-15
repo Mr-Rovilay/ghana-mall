@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        galasio: ['Gelasio', 'serif'],
+        instrument: ['Instrument Sans', 'sans-serif'],
+      },
       colors: {
         primary: "#f9f9f9",
         primaryLight: "#e3f7fa",
