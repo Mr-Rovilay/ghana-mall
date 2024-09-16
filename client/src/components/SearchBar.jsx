@@ -18,7 +18,7 @@ const SearchBar = () => {
 
   return showSearch && visible ? (
     <div className="text-center border-t border-b bg-gray-50">
-      <div className="inline-flex items-center justify-center w-3/4 px-5 mx-3 my-5 rounded-md sm:w-1/2">
+      <div className="inline-flex items-center justify-center px-5 mx-3 my-5 rounded-md w-8/9 sm:w-1/2">
         <input
           type="text"
           placeholder="Search for products..."
