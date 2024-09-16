@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FaXmark, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
+import toast from 'react-hot-toast';
 
 const LoginPopup = ({ setShowLogin }) => {
   const { url, setToken } = useContext(ShopContext);
@@ -50,14 +51,14 @@ const LoginPopup = ({ setShowLogin }) => {
         if ((response.status === 200 || response.status === 201) && response.data.token) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
-        //   toast.success(`${state} successful!`);
+           toast.success(`${state} successful!`);
           setShowLogin(false);
         } else {
           throw new Error("No token received");
         }
       } catch (error) {
         const errorMessage = error.response?.data?.error || "An error occurred. Please try again.";
-        // toast.error(errorMessage);
+         toast.error(errorMessage);
         setErrors({ submit: errorMessage });
       } finally {
         setIsLoading(false);
@@ -75,7 +76,7 @@ const LoginPopup = ({ setShowLogin }) => {
         className="bg-white p-8 m-3 rounded-lg w-full max-w-[400px] shadow-lg"
       >
         <div className="flex items-center justify-between mb-4">
-          <h4 className="text-xl text-gray-700 font-semibold">{state}</h4>
+          <h4 className="text-xl font-semibold text-gray-700">{state}</h4>
           <FaXmark onClick={() => setShowLogin(false)} className="cursor-pointer" />
         </div>
 
@@ -122,7 +123,7 @@ const LoginPopup = ({ setShowLogin }) => {
           </div>
         </div>
 
-        <button className={`bg-green-500 text-white p-2 rounded-md mt-4 w-full ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`} type="submit" disabled={isLoading}>
+        <button className={`bg-red-500 text-white p-2 rounded-md mt-4 w-full ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`} type="submit" disabled={isLoading}>
           {isLoading ? 'Processing...' : (state === "Sign Up" ? "Create account" : "Login")}
         </button>
 
@@ -130,14 +131,14 @@ const LoginPopup = ({ setShowLogin }) => {
           {state === "Sign Up" ? (
             <p>
               Already have an account?{" "}
-              <span onClick={() => { setState("Login"); setFormData({ name: "", email: "", password: "" }); }} className="cursor-pointer text-green-500">
+              <span onClick={() => { setState("Login"); setFormData({ name: "", email: "", password: "" }); }} className="text-green-500 cursor-pointer">
                 Login
               </span>
             </p>
           ) : (
             <p>
               Don&apos;t have an account?{" "}
-              <span onClick={() => { setState("Sign Up"); setFormData({ name: "", email: "", password: "" }); }} className="cursor-pointer text-green-500">
+              <span onClick={() => { setState("Sign Up"); setFormData({ name: "", email: "", password: "" }); }} className="text-green-500 cursor-pointer">
                 Create account
               </span>
             </p>

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { FaCircleUser } from "react-icons/fa6";
 import { GiShoppingBag } from "react-icons/gi";
@@ -16,15 +16,22 @@ import { ShopContext } from "../context/ShopContext";
 const Navbar = ({ setShowLogin }) => {
   const [visible, setVisible] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
-  const {setShowSearch} = useContext(ShopContext)
+  const {setShowSearch, token, setToken} = useContext(ShopContext)
   const { itemQuantity } = useContext(CartContext);
-  const token = false;
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token")
+    setToken(null);
+    navigate("/"); 
+  }
 
   return (
     <div className="relative py-5 border z-100 max-padd-container flexBetween border-b-red-200">
-      <NavLink to={"/"} className="text-xl font-bold">
-        <span className="text-red-600">GHANA</span>
-        <span className="text-green-600">MALL</span>
+      <NavLink to={"/"} className="">
+        {/* <span className="text-red-600">GHANA</span>
+        <span className="text-green-600">MALL</span> */}
+        <img src="/ghana-mall-logo.jpeg" alt="" width={50} height={50} />
       </NavLink>
 
       {/* Menu items */}
@@ -82,7 +89,7 @@ const Navbar = ({ setShowLogin }) => {
                 <p className="flex gap-1 cursor-pointer hover:text-black">
                   <FiPackage /> Orders
                 </p>
-                <p className="flex gap-1 cursor-pointer hover:text-black">
+                <p className="flex gap-1 cursor-pointer hover:text-black" onClick={logout}>
                   <CiLogout /> Logout
                 </p>
               </div>
@@ -143,6 +150,7 @@ const Navbar = ({ setShowLogin }) => {
             Contact
           </NavLink>
           <div className="px-3 mt-4">
+          {!token ? (
           <button
             onClick={() => setShowLogin(true)}
             className="flex items-center justify-center w-full gap-1 px-2 py-2 text-base font-medium text-center text-white bg-green-500 rounded-lg"
@@ -150,6 +158,7 @@ const Navbar = ({ setShowLogin }) => {
             <LuUser2 className="bold 18px" />
             Login
           </button>
+           ) : ( <></> )}
           </div>
         </div>
       </motion.div>

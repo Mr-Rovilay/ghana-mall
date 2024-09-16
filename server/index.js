@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import connectDB from "./db/db.js";
 import userRouter from "./routes/userRoute.js"; 
+import cartRouter from "./routes/cartRoute.js";
 
 
 
@@ -20,6 +21,7 @@ app.use(cors());
 
 
  app.use("/api/user", userRouter)
+ app.use("/api/cart", cartRouter)
 
 
 

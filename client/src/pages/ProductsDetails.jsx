@@ -21,17 +21,17 @@ const ProductsDetails = () => {
 
   return (
     <section>
-      <div className="flex">
-        <div className="w-1/2 p-4">
-          <img src={image} alt={title} width={255} height={255} className="object-contain ring-1 rounded-md ring-slate-900/5" />
+      <div className="flex flex-col items-center justify-center">
+        <div className="p-4">
+          <img src={image} alt={title} width={255} height={255} className="object-contain rounded-md ring-1 ring-slate-900/5" />
         </div>
-        <div className="w-1/2 p-4">
+        <div className="p-4 md:w-1/2">
           <h1 className="text-3xl font-bold text-gray-700">{title}</h1>
-          <p className="text-gray-700 my-2">${price}</p>
-          <p className="text-gray-500 my-4">{description}</p>
+          <p className="my-2 text-gray-700">${price}</p>
+          <p className="my-4 text-gray-500">{description}</p>
           <button 
             onClick={() => addToCart(product, product.id)} 
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600"
           >
             Add to Cart
           </button>

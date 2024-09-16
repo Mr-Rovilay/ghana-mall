@@ -65,8 +65,8 @@ const SideBar = () => {
       </div>
 
       </div>
-      <div className="text-center w-full">
-        <button className="px-4 py-2 text-white bg-green-500 rounded hover:bg-secondary w-full">
+      <div className="w-full text-center">
+        <button className="w-full px-4 py-2 text-white bg-green-500 rounded">
           Checkout
         </button>
       </div>

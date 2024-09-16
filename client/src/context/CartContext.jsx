@@ -1,4 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import axios from 'axios';
+import toast from "react-hot-toast";
+import { ShopContext } from "./ShopContext";
 
 export const CartContext = createContext();
 
@@ -6,6 +9,8 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [itemQuantity, setItemQuantity] = useState(0);
   const [total, setTotal] = useState(0);
+   const { token, setToken, url, products } = useContext(ShopContext); 
+
 
   // Calculate total price whenever cart changes
   useEffect(() => {
@@ -63,6 +68,18 @@ const CartProvider = ({ children }) => {
     });
     setCart(updatedCart);
   };
+
+  useEffect(() => {
+    async function loadData() {
+  
+      const storedToken = localStorage.getItem("token");
+      if (storedToken) {
+        setToken(storedToken);
+      }
+    }
+  
+    loadData();
+  }, []);
 
   const clearCart = () => {
     setCart([]);

@@ -7,13 +7,13 @@ import SidebarProvider from "./context/SidebarContextProvider.jsx";
 import CartProvider from "./context/CartContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <SidebarProvider>
-    <CartProvider>
-      <ShopContextProvider>
-        <StrictMode>
+  <StrictMode>
+    <ShopContextProvider>
+      <SidebarProvider>
+        <CartProvider>
           <App />
-        </StrictMode>
-      </ShopContextProvider>
-    </CartProvider>
-  </SidebarProvider>
+        </CartProvider>
+      </SidebarProvider>
+    </ShopContextProvider>
+  </StrictMode>
 );

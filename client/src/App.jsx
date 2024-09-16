@@ -10,12 +10,14 @@ import LoginPopup from "./components/LoginPopup";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   return (
     <div className="">
       <BrowserRouter>
+      <Toaster />
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <Navbar setShowLogin={setShowLogin}/>
       <SearchBar/>

@@ -8,6 +8,8 @@ const ShopContextProvider = (props) => {
   const [error, setError] = useState(null); // Error state
   const [search, setSearch] = useState("")
   const [showSearch, setShowSearch] = useState(false)
+  const url ="http://localhost:4000" 
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     const fetchedProducts = async () => {
@@ -34,7 +36,10 @@ const ShopContextProvider = (props) => {
     search,
     setSearch,
     showSearch,
-    setShowSearch
+    setShowSearch,
+    url, 
+    token,
+    setToken,
   };
 
   return (
