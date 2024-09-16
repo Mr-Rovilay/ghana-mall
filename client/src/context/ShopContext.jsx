@@ -6,6 +6,8 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
+  const [search, setSearch] = useState("")
+  const [showSearch, setShowSearch] = useState(false)
 
   useEffect(() => {
     const fetchedProducts = async () => {
@@ -29,6 +31,10 @@ const ShopContextProvider = (props) => {
     products,
     loading,
     error,
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch
   };
 
   return (

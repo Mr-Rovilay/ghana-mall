@@ -88,7 +88,7 @@ const Shops = () => {
   return (
     <section className="py-10 bg-gray-100 max-padd-container">
       <h2 className="text-3xl font-bold text-center text-gray-700">Shops in Ghana Mall</h2>
-      <p className="text-center text-gray-500 mb-8">
+      <p className="mb-8 text-center text-gray-500">
         Explore various shops offering a wide range of products.
       </p>
       
@@ -97,7 +97,7 @@ const Shops = () => {
         {shopsData.map((shop) => (
           <div
             key={shop.id}
-            className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 ring-1 ring-slate-900/5 group"
+            className="p-4 transition-shadow duration-200 bg-white rounded-lg shadow-md hover:shadow-lg ring-1 ring-slate-900/5 group"
           >
             <Link to={shop.link}>
               <img
@@ -105,10 +105,10 @@ const Shops = () => {
                 alt={shop.name}
                 className="object-cover w-full h-48 mb-4 rounded-md"
               />
-              <h3 className="mb-2 text-xm font-bold text-gray-800">
+              <h3 className="mb-2 font-bold text-gray-800 text-xm">
                 {shop.name}
               </h3>
-              <p className="mb-3 text-gray-600 text-sm line-clamp-1">{shop.description}</p>
+              <p className="mb-3 text-sm text-gray-600 line-clamp-1">{shop.description}</p>
               <ul className="mb-4">
                 {shop.products.map((product, index) => (
                   <li key={index} className="text-gray-500">
@@ -130,14 +130,14 @@ const Shops = () => {
       {/* Shop Vacancies */}
       <div className="mt-10">
         <h2 className="text-2xl font-bold text-center text-gray-700">Available Shop Vacancies</h2>
-        <p className="text-center text-gray-500 mb-6">
+        <p className="mb-6 text-center text-gray-500">
           Explore the latest shop vacancies in Ghana Mall.
         </p>
         <div className="grid grid-cols-1 gap-8 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {/* Example vacancy - can be dynamic */}
           <div className="p-4 bg-white rounded-lg shadow-md">
             <h3 className="text-lg font-bold text-gray-800">Vacant Shop A</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Perfect location for retail, fashion, or electronics.
             </p>
             <Link
@@ -149,7 +149,7 @@ const Shops = () => {
           </div>
           <div className="p-4 bg-white rounded-lg shadow-md">
             <h3 className="text-lg font-bold text-gray-800">Vacant Shop B</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Spacious unit available for restaurants or cafes.
             </p>
             <Link
@@ -161,7 +161,7 @@ const Shops = () => {
           </div>
           <div className="p-4 bg-white rounded-lg shadow-md">
             <h3 className="text-lg font-bold text-gray-800">Vacant Shop C</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Spacious unit available for restaurants or cafes.
             </p>
             <Link
@@ -173,7 +173,7 @@ const Shops = () => {
           </div>
           <div className="p-4 bg-white rounded-lg shadow-md">
             <h3 className="text-lg font-bold text-gray-800">Vacant Shop D</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Spacious unit available for restaurants or cafes.
             </p>
             <Link
@@ -185,7 +185,7 @@ const Shops = () => {
           </div>
           <div className="p-4 bg-white rounded-lg shadow-md">
             <h3 className="text-lg font-bold text-gray-800">Vacant Shop E</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Spacious unit available for restaurants or cafes.
             </p>
             <Link

@@ -11,10 +11,12 @@ import { motion } from "framer-motion"; // Import Framer Motion
 import { SidebarContext } from "../context/SidebarContextProvider";
 import { CartContext } from "../context/CartContext";
 import { LuUser2 } from "react-icons/lu";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [visible, setVisible] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
+  const {setShowSearch} = useContext(ShopContext)
   const { itemQuantity } = useContext(CartContext);
   const token = false;
 
@@ -47,7 +49,7 @@ const Navbar = ({ setShowLogin }) => {
 
       {/* Search and User Menu */}
       <div className="flex items-center gap-6">
-        <FiSearch className="w-5 text-2xl cursor-pointer" />
+        <FiSearch onClick={() => setShowSearch(true)} className="w-5 text-2xl cursor-pointer" />
 
         {/* Cart Icon */}
         <div onClick={() => setIsOpen(!isOpen)} className="relative">
@@ -59,7 +61,7 @@ const Navbar = ({ setShowLogin }) => {
         {!token ? (
           <button
             onClick={() => setShowLogin(true)}
-            className="flex items-center justify-center px-2 py-2 text-base font-medium text-center text-white bg-green-500 rounded-lg gap-1"
+            className="items-center justify-center hidden gap-1 px-2 py-2 text-base font-medium text-center text-white bg-red-500 rounded-lg md:flex"
           >
             <LuUser2 className="bold 18px" />
             Login
@@ -140,6 +142,15 @@ const Navbar = ({ setShowLogin }) => {
           >
             Contact
           </NavLink>
+          <div className="px-3 mt-4">
+          <button
+            onClick={() => setShowLogin(true)}
+            className="flex items-center justify-center w-full gap-1 px-2 py-2 text-base font-medium text-center text-white bg-green-500 rounded-lg"
+          >
+            <LuUser2 className="bold 18px" />
+            Login
+          </button>
+          </div>
         </div>
       </motion.div>
     </div>

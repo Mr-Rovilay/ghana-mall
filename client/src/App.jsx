@@ -9,6 +9,7 @@ import SideBar from "./components/SideBar";
 import LoginPopup from "./components/LoginPopup";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -17,6 +18,7 @@ const App = () => {
       <BrowserRouter>
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <Navbar setShowLogin={setShowLogin}/>
+      <SearchBar/>
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
