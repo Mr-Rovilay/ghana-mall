@@ -1,16 +1,24 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import axios from 'axios';
 import toast from "react-hot-toast";
 import { ShopContext } from "./ShopContext";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  // Initialize cart from localStorage or fallback to empty array
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
   const [itemQuantity, setItemQuantity] = useState(0);
   const [total, setTotal] = useState(0);
-   const { token, setToken, url, products } = useContext(ShopContext); 
+  const { setToken} = useContext(ShopContext);
 
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   // Calculate total price whenever cart changes
   useEffect(() => {
@@ -40,13 +48,17 @@ const CartProvider = ({ children }) => {
         return item;
       });
       setCart(newCart);
+      toast.success(`Increased ${product.title} quantity in cart`);
     } else {
       setCart([...cart, newItem]);
+      toast.success(`Added ${product.title} to cart`);
     }
   };
 
   const removeFromCart = (id) => {
     setCart((prevItems) => prevItems.filter((item) => item.id !== id));
+    const removedItem = cart.find((item) => item.id === id);
+    toast.success(`${removedItem?.title} removed from cart!`);
   };
 
   const incrementQuantity = (id) => {
@@ -69,17 +81,13 @@ const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
+  // Load token from localStorage
   useEffect(() => {
-    async function loadData() {
-  
-      const storedToken = localStorage.getItem("token");
-      if (storedToken) {
-        setToken(storedToken);
-      }
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
     }
-  
-    loadData();
-  }, []);
+  }, [setToken]);
 
   const clearCart = () => {
     setCart([]);

@@ -24,7 +24,7 @@ const SideBar = () => {
       </div>
 
       {/* Sidebar content */}
-      <div className="overflow-x-auto overflow-y-auto h-[595px]">
+      <div className="overflow-x-auto overflow-y-auto h-[495px] md:h-[595px]">
         <table className="w-full text-sm text-left text-gray-700 border-collapse">
           <thead>
             <tr className="bg-gray-100">
