@@ -35,7 +35,7 @@ const PriceComparison = () => {
     <div className="flex items-center justify-center max-padd-container">
       {Object.keys(groupedProducts)?.slice(0, 1).map((productName) => (
         <div key={productName} className="mb-8 max-w-7xl">
-          <h3 className="mb-4 text-2xl font-bold text-gray-500">{title} - Price Comparison</h3>
+          <h3 className="mb-4 text-2xl font-bold text-gray-500 ">{title} - Price Comparison</h3>
 
           {/* Table for product price comparison */}
           <table className="w-full table-auto">
