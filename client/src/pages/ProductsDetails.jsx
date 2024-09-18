@@ -20,7 +20,7 @@ const ProductsDetails = () => {
   const { title, price, description, image } = product;
 
   return (
-    <section>
+    <section className="max-w-7xl">
       <div className="grid items-center justify-center md:flex">
         <div className="p-4">
           <img src={image} alt={title} width={255} height={255} className="object-contain w-full rounded-md md:w-60 ring-1 ring-slate-900/5" />
