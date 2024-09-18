@@ -11,6 +11,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import { Toaster } from 'react-hot-toast';
+import ShopDetails from "./components/ShopDetails";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/shops" element={<Shops />} />
+          <Route path="/shop/:id" element={<ShopDetails />} />
           <Route path="/product/:id" element={<ProductsDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

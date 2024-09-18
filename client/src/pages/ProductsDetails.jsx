@@ -21,7 +21,7 @@ const ProductsDetails = () => {
 
   return (
     <section>
-      <div className="flex flex-col items-center justify-center">
+      <div className="grid items-center justify-center md:flex">
         <div className="p-4">
           <img src={image} alt={title} width={255} height={255} className="object-contain rounded-md ring-1 ring-slate-900/5" />
         </div>
@@ -37,7 +37,7 @@ const ProductsDetails = () => {
           </button>
         </div>
       </div>
-      <PriceComparison  />
+      <PriceComparison />
     </section>
   );
 };

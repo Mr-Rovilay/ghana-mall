@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import connectDB from "./db/db.js";
 import userRouter from "./routes/userRoute.js"; 
 import cartRouter from "./routes/cartRoute.js";
+import shopRouter from "./routes/shopRoute.js";
 
 
 
@@ -18,10 +19,10 @@ app.use(cors());
   app.use(express.json()); 
 
 
-
-
  app.use("/api/user", userRouter)
  app.use("/api/cart", cartRouter)
+ app.use("/api/shop", shopRouter)
+ app.use("/images", express.static("uploads"))
 
 
 
