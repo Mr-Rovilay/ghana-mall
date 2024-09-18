@@ -10,7 +10,7 @@ const ShopContextProvider = (props) => {
   const [error, setError] = useState(null); // Error state
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-  const url = "http://localhost:4000"; 
+  const url = "https://ghana-mall-server.onrender.com"; 
   // http://localhost:4000
   // https://ghana-mall-server.onrender.com
  

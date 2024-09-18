@@ -12,7 +12,7 @@ const Footer = () => {
             <span className="text-red-600">GHANA</span>
             <span className="text-green-600">MALL</span>
           </NavLink>
-          <p className="text-left text-gray-30">
+          <p className="text-sm text-left text-gray-30">
             At Ghana Mall, we bring the best of retail to your fingertips,
             offering a wide range of products at competitive prices.
           </p>
