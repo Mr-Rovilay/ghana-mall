@@ -10,8 +10,8 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md ring-1 ring-slate-900/5 group ">
-      <div className="flexCenter m-1.4 py-10 rounded-lg shadow-sm relative ">
         <Link to={`/product/${id}`}>
+      <div className="flexCenter m-1.4 py-10 rounded-lg shadow-sm relative ">
           <img
             src={image}
             alt={title}
@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
             height={122}
             width={122}
           />
-        </Link>
+       
         <span
           className={
             id === 1 || id === 2 || id === 3
@@ -34,6 +34,7 @@ const ProductCard = ({ product }) => {
           {rating.rate}
         </span>
       </div>
+      </Link>
       <div className="p-4">
         <h5 className="text-sm font-semibold truncate">{title}</h5>
         <h4 className="medium-14">{category}</h4>

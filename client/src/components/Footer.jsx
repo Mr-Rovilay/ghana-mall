@@ -4,14 +4,15 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="bg-[#222] text-white max-padd-container py-12 rounded-t-xl"
+      className="bg-[#222] text-white max-padd-container py-12"
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div className="flex flex-col items-center md:items-start">
-          <NavLink to={"/"} className="mb-4 text-xl font-bold">
-            <span className="text-red-600">GHANA</span>
-            <span className="text-green-600">MALL</span>
-          </NavLink>
+        <NavLink to={"/"} className="">
+        {/* <span className="text-red-600">GHANA</span>
+        <span className="text-green-600">MALL</span> */}
+        <img src="/ghana-mall-logo.jpeg" alt="" width={50} height={50} />
+      </NavLink>
           <p className="text-sm text-left text-gray-30">
             At Ghana Mall, we bring the best of retail to your fingertips,
             offering a wide range of products at competitive prices.
