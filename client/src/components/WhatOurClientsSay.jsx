@@ -47,7 +47,9 @@ const WhatOurClientsSay = () => {
                   src={testimonial.avatar}
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full"
+                  loading="lazy"
                 />
+                  {/* <img src="image.jpg" loading="lazy" height="300px" width="300px" /> */}
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">{testimonial.name}</h3>
                   <p className="text-gray-500">{testimonial.company}</p>
