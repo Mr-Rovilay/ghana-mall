@@ -22,9 +22,7 @@ const CartItem = ({ item }) => {
         </Link>
       </td>
       <td className="px-4 py-3 text-left line-clamp-4">
-        <Link to={`/product/${id}`}>
           <span className="font-medium text-gray-700">{title}</span>
-        </Link>
       </td>
       <td className="px-4 py-3 text-center">
         <span className="flex items-center gap-2 px-2 text-gray-700 ring-1 ring-slate-900/5">

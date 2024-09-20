@@ -7,7 +7,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 const SideBar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart, clearCart, total, itemQuantity,    removeFromCart } = useContext(CartContext);
+  const { cart, clearCart, total, itemQuantity} = useContext(CartContext);
 
   return (
     <div
@@ -34,7 +34,7 @@ const SideBar = () => {
               <th className="px-4 py-2 text-center">Price</th>
               <th className="px-4 py-2 text-center">Total</th>
               <th className="px-4 ">
-                <button onClick={   removeFromCart} className="text-red-600">
+                <button className="text-red-600">
                   <FaTrashAlt />
                 </button>
               </th>
