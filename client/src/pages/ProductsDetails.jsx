@@ -23,7 +23,7 @@ const ProductsDetails = () => {
     <section className="max-w-7xl">
       <div className="grid items-center justify-center md:flex">
         <div className="p-4">
-          <img src={image} alt={title} width={255} height={255} className="object-contain w-full rounded-md md:w-60 ring-1 ring-slate-900/5" />
+          <img src={image} alt={title} width={255} height={255} loading="lazy" className="object-contain w-full rounded-md md:w-60 ring-1 ring-slate-900/5" />
         </div>
         <div className="p-4 md:w-1/2">
           <h1 className="text-3xl font-bold text-gray-500">{title}</h1>

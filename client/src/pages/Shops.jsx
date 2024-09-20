@@ -23,6 +23,7 @@ const Shops = () => {
           
               <img
                src={url+"/images/"+shop.image}
+               loading="lazy"
                 alt={shop.name}
                 className="object-cover w-full h-48 mb-4 rounded-md"
               />
